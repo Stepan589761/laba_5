@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Смена темы</title>
+    <style>
+
+#text1, #text2 {
+            font-size: 18px;
+            color: black;
+        }        
+
+        .theme-light {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        .theme-dark {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            border: 1px solid white;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="text1">Это первый абзац. Здесь может быть любая информация.</p>
+    <p id="text2">Это второй абзац. Этот текст также можно изменить.</p>
+
+    <button onclick="changeColor()">Сменить цвет текста</button>
+
+    <div id="themeBlock" class="theme-light">
+        <p>Это блок с текстом, ему можно менять тему</p>
+    </div>
+
+    <button id="themeButton">Сменить тему</button>
+
+    <script>
+
+function changeColor() {
+            const text1 = document.getElementById('text1');
+            const text2 = document.getElementById('text2');
+            text1.style.color = text1.style.color === 'black' ? 'blue' : 'black';
+            text2.style.color = text2.style.color === 'black' ? 'red' : 'black';
+        }
+
+        const themeButton = document.getElementById('themeButton');
+        const themeBlock = document.getElementById('themeBlock');
+
+        themeButton.addEventListener('click', function() {
+            themeBlock.classList.toggle('theme-dark');
+            themeBlock.classList.toggle('theme-light');
+        });
+    </script>
+
+</body>
+</html>
